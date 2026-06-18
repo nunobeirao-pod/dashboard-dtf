@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudo DTF — 4 a 5 Linhas de Produção</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary:#ffffff; --bg-secondary:#f5f4f0; --bg-tertiary:#eeede9;
+    --bg-info:#e6f1fb; --bg-success:#eaf3de; --bg-warning:#faeeda; --bg-danger:#fcebeb;
+    --tx-primary:#2c2c2a; --tx-secondary:#5f5e5a; --tx-tertiary:#888780;
+    --tx-info:#185fa5; --tx-success:#3b6d11; --tx-warning:#854f0b; --tx-danger:#a32d2d;
+    --bd-tertiary:rgba(0,0,0,0.10); --bd-secondary:rgba(0,0,0,0.18);
+    --bd-info:#85b7eb; --bd-success:#97c459; --bd-warning:#ef9f27; --bd-danger:#f09595;
+    --r-md:8px; --r-lg:12px; --font:'Segoe UI',system-ui,Arial,sans-serif;
+  }
+  body { font-family:var(--font); background:var(--bg-secondary); color:var(--tx-primary); padding:24px; min-height:100vh; }
+  .wrap { max-width:960px; margin:0 auto; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0; }
+  .r2   { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+  .card { background:var(--bg-primary); border-radius:var(--r-lg); border:0.5px solid var(--bd-tertiary); padding:1rem 1.25rem; }
+  .metric { background:var(--bg-secondary); border-radius:var(--r-md); padding:1rem; }
+  .slbl { font-size:12px; color:var(--tx-secondary); font-weight:500; margin-bottom:12px; }
+  .rrow { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:0.5px solid var(--bd-tertiary); }
+  .rrow:last-child { border-bottom:none; }
+  .rbadge { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:500; flex-shrink:0; }
+  .badge { font-size:11px; padding:2px 8px; border-radius:var(--r-md); font-weight:500; }
+  .plan-box { border-radius:var(--r-md); padding:13px; }
+  .plan-row { display:flex; justify-content:space-between; padding:6px 0; font-size:12px; }
+  .risk-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:0.5px solid var(--bd-tertiary); }
+  .risk-row:last-child { border-bottom:none; }
+  .rec-box { border-radius:var(--r-lg); padding:14px; }
+  h2.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+  h1 { font-size:17px; font-weight:500; color:var(--tx-primary); }
+  @media (max-width:640px) { .kpis { grid-template-columns:repeat(2,1fr); } .r2 { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h2 class="sr-only">Dashboard de análise comparativa de máquinas DTF para operação web-to-print automatizada com 4 a 5 linhas de produção.</h2>
+<div style="padding-top:4px;">
+  <h1>Estudo DTF — 4 a 5 linhas de produção</h1>
+  <p style="font-size:13px;color:var(--tx-secondary);margin-top:3px;">Análise comparativa para web-to-print automatizado · 18 junho 2026</p>
+</div>
+<div class="kpis">
+  <div class="metric"><div style="font-size:12px;color:var(--tx-secondary);margin-bottom:5px;"><i class="ti ti-trophy" style="font-size:13px;vertical-align:-1px" aria-hidden="true"></i> Melhor automação</div><div style="font-size:15px;font-weight:500;color:var(--tx-primary);">Mimaki TxF300-75</div><div style="font-size:11px;color:var(--tx-info);margin-top:4px;">1.ª escolha web-to-print</div></div>
+  <div class="metric"><div style="font-size:12px;color:var(--tx-secondary);margin-bottom:5px;"><i class="ti ti-coin" style="font-size:13px;vertical-align:-1px" aria-hidden="true"></i> Melhor ROI inicial</div><div style="font-size:15px;font-weight:500;color:var(--tx-primary);">Audley 6x i3200</div><div style="font-size:11px;color:var(--tx-success);margin-top:4px;">Alternativa de custo</div></div>
+  <div class="metric"><div style="font-size:12px;color:var(--tx-secondary);margin-bottom:5px;"><i class="ti ti-layout-grid" style="font-size:13px;vertical-align:-1px" aria-hidden="true"></i> Plano de linhas</div><div style="font-size:24px;font-weight:500;color:var(--tx-primary);">4–5</div><div style="font-size:11px;color:var(--tx-tertiary);margin-top:2px;">Linhas de produção</div></div>
+  <div class="metric"><div style="font-size:12px;color:var(--tx-secondary);margin-bottom:5px;"><i class="ti ti-users" style="font-size:13px;vertical-align:-1px" aria-hidden="true"></i> Operadores mínimos</div><div style="font-size:24px;font-weight:500;color:var(--tx-primary);">2–4</div><div style="font-size:11px;color:var(--tx-tertiary);margin-top:2px;">Consoante o plano</div></div>
+</div>
+<div class="r2">
+  <div class="card">
+    <div class="slbl">Comparação de critérios</div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:10px;font-size:12px;color:var(--tx-secondary);">
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:20px;height:2px;background:#378ADD;display:inline-block;"></span>Mimaki</span>
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:20px;height:0;border-top:2px dashed #1D9E75;display:inline-block;"></span>Roland</span>
+      <span style="display:flex;align-items:center;gap:5px;"><span style="width:20px;height:0;border-top:2px dotted #BA7517;display:inline-block;"></span>Audley</span>
+    </div>
+    <div style="position:relative;width:100%;height:240px;"><canvas id="radarChart" role="img" aria-label="Gráfico radar comparativo das 3 máquinas DTF em 6 critérios.">Mimaki (5,5,5,5,3,5), Roland (4,4,4,4,3,4), Audley (3,3,3,4,5,5).</canvas></div>
+  </div>
+  <div class="card">
+    <div class="slbl">Ranking web-to-print</div>
+    <div class="rrow">
+      <div class="rbadge" style="background:var(--bg-warning);color:var(--tx-warning);">1</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:500;color:var(--tx-primary);">Mimaki TxF300-75</div><div style="display:flex;gap:5px;margin-top:5px;"><span class="badge" style="background:var(--bg-success);color:var(--tx-success);">NCU/NRS</span><span class="badge" style="background:var(--bg-info);color:var(--tx-info);">Auto-manutenção</span></div></div>
+      <div style="text-align:right;"><div style="font-size:20px;font-weight:500;color:var(--tx-warning);">4.7</div><div style="font-size:11px;color:var(--tx-tertiary);">/5.0</div></div>
+    </div>
+    <div class="rrow">
+      <div class="rbadge" style="background:var(--bg-secondary);color:var(--tx-secondary);">2</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:500;color:var(--tx-primary);">Roland DG TY-300</div><div style="display:flex;gap:5px;margin-top:5px;"><span class="badge" style="background:var(--bg-success);color:var(--tx-success);">Muito fiável</span><span class="badge" style="background:var(--bg-secondary);color:var(--tx-secondary);">Suporte EU</span></div></div>
+      <div style="text-align:right;"><div style="font-size:20px;font-weight:500;color:var(--tx-secondary);">3.8</div><div style="font-size:11px;color:var(--tx-tertiary);">/5.0</div></div>
+    </div>
+    <div class="rrow">
+      <div class="rbadge" style="background:var(--bg-danger);color:var(--tx-danger);">3</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:500;color:var(--tx-primary);">Brother GTXpro Bulk</div><div style="display:flex;gap:5px;margin-top:5px;"><span class="badge" style="background:var(--bg-info);color:var(--tx-info);">Eng. japonesa</span><span class="badge" style="background:var(--bg-secondary);color:var(--tx-secondary);">Ecossistema fechado</span></div></div>
+      <div style="text-align:right;"><div style="font-size:20px;font-weight:500;color:var(--tx-secondary);">3.5</div><div style="font-size:11px;color:var(--tx-tertiary);">/5.0</div></div>
+    </div>
+    <div class="rrow">
+      <div class="rbadge" style="background:var(--bg-success);color:var(--tx-success);">4</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:500;color:var(--tx-primary);">Audley 6x i3200</div><div style="display:flex;gap:5px;margin-top:5px;"><span class="badge" style="background:var(--bg-success);color:var(--tx-success);">ROI 5/5</span><span class="badge" style="background:var(--bg-warning);color:var(--tx-warning);">+supervisão</span></div></div>
+      <div style="text-align:right;"><div style="font-size:20px;font-weight:500;color:var(--tx-secondary);">3.8</div><div style="font-size:11px;color:var(--tx-tertiary);">/5.0</div></div>
+    </div>
+  </div>
+</div>
+<div class="r2">
+  <div class="card">
+    <div class="slbl">Planos de produção</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div class="plan-box" style="background:var(--bg-info);border:0.5px solid var(--bd-info);">
+        <div style="font-size:11px;color:var(--tx-info);font-weight:500;margin-bottom:3px;">Plano A</div>
+        <div style="font-size:18px;font-weight:500;color:var(--tx-info);margin-bottom:10px;">4 linhas</div>
+        <div class="plan-row" style="border-bottom:0.5px solid var(--bd-info);"><span style="color:var(--tx-info);">Máquinas</span><span style="font-weight:500;color:var(--tx-info);">4× Mimaki</span></div>
+        <div class="plan-row" style="border-bottom:0.5px solid var(--bd-info);"><span style="color:var(--tx-info);">Operadores</span><span style="font-weight:500;color:var(--tx-info);">2–3</span></div>
+        <div class="plan-row"><span style="color:var(--tx-info);">Foco</span><span style="font-weight:500;color:var(--tx-info);">Alta automação</span></div>
+      </div>
+      <div class="plan-box" style="background:var(--bg-secondary);border:0.5px solid var(--bd-secondary);">
+        <div style="font-size:11px;color:var(--tx-secondary);font-weight:500;margin-bottom:3px;">Plano B</div>
+        <div style="font-size:18px;font-weight:500;color:var(--tx-primary);margin-bottom:10px;">5 linhas</div>
+        <div class="plan-row" style="border-bottom:0.5px solid var(--bd-tertiary);"><span style="color:var(--tx-secondary);">Máquinas</span><span style="font-weight:500;color:var(--tx-primary);">5× Mimaki</span></div>
+        <div class="plan-row" style="border-bottom:0.5px solid var(--bd-tertiary);"><span style="color:var(--tx-secondary);">Operadores</span><span style="font-weight:500;color:var(--tx-primary);">3–4</span></div>
+        <div class="plan-row"><span style="color:var(--tx-secondary);">Foco</span><span style="font-weight:500;color:var(--tx-primary);">Escala industrial</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="slbl">Riscos operacionais</div>
+    <div class="risk-row"><div><div style="font-size:13px;font-weight:500;color:var(--tx-primary);">Tinta branca</div><div style="font-size:12px;color:var(--tx-secondary);margin-top:1px;">Circulação e manutenção preventiva</div></div><span class="badge" style="background:var(--bg-danger);color:var(--tx-danger);flex-shrink:0;">Alto</span></div>
+    <div class="risk-row"><div><div style="font-size:13px;font-weight:500;color:var(--tx-primary);">Humidade</div><div style="font-size:12px;color:var(--tx-secondary);margin-top:1px;">45–55% HR controlada</div></div><span class="badge" style="background:var(--bg-danger);color:var(--tx-danger);flex-shrink:0;">Alto</span></div>
+    <div class="risk-row"><div><div style="font-size:13px;font-weight:500;color:var(--tx-primary);">Pó adesivo</div><div style="font-size:12px;color:var(--tx-secondary);margin-top:1px;">Limpeza regular periódica</div></div><span class="badge" style="background:var(--bg-warning);color:var(--tx-warning);flex-shrink:0;">Médio</span></div>
+    <div class="risk-row"><div><div style="font-size:13px;font-weight:500;color:var(--tx-primary);">Nozzles</div><div style="font-size:12px;color:var(--tx-secondary);margin-top:1px;">NCU/NRS e verificações automáticas</div></div><span class="badge" style="background:var(--bg-danger);color:var(--tx-danger);flex-shrink:0;">Alto</span></div>
+    <div class="risk-row"><div><div style="font-size:13px;font-weight:500;color:var(--tx-primary);">Paragens prolongadas</div><div style="font-size:12px;color:var(--tx-secondary);margin-top:1px;">Redundância com múltiplas linhas</div></div><span class="badge" style="background:var(--bg-danger);color:var(--tx-danger);flex-shrink:0;">Alto</span></div>
+  </div>
+</div>
+<div class="card" style="margin-bottom:8px;">
+  <div class="slbl">Recomendação final</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+    <div class="rec-box" style="background:var(--bg-info);border:2px solid var(--bd-info);">
+      <div style="font-size:10px;color:var(--tx-info);font-weight:500;margin-bottom:5px;letter-spacing:0.3px;">MINIMIZAR INTERVENÇÃO HUMANA</div>
+      <div style="font-size:16px;font-weight:500;color:var(--tx-info);margin-bottom:8px;">Mimaki TxF300-75</div>
+      <div style="font-size:13px;color:var(--tx-info);line-height:1.55;opacity:0.9;">Melhor equilíbrio entre estabilidade, automação e consistência. NCU/NRS minimiza o tempo de intervenção do operador.</div>
+    </div>
+    <div class="rec-box" style="background:var(--bg-success);border:0.5px solid var(--bd-success);">
+      <div style="font-size:10px;color:var(--tx-success);font-weight:500;margin-bottom:5px;letter-spacing:0.3px;">MAXIMIZAR PRODUTIVIDADE/INVESTIMENTO</div>
+      <div style="font-size:16px;font-weight:500;color:var(--tx-success);margin-bottom:8px;">Audley 6x i3200</div>
+      <div style="font-size:13px;color:var(--tx-success);line-height:1.55;opacity:0.9;">ROI inicial superior. Excelente produtividade por metro. Requer mais supervisão e intervenção técnica regular.</div>
+    </div>
+  </div>
+  <div style="background:var(--bg-secondary);border-radius:var(--r-md);border:0.5px solid var(--bd-tertiary);padding:12px 14px;font-size:13px;color:var(--tx-secondary);line-height:1.6;">
+    <i class="ti ti-info-circle" style="font-size:14px;vertical-align:-2px;margin-right:6px;" aria-hidden="true"></i>Para operador com <strong style="font-weight:500;color:var(--tx-primary);">i1Pro3 + Digital Factory V12 + ICC próprios</strong>, o maior ganho da Mimaki não é a qualidade de impressão absoluta, mas a <strong style="font-weight:500;color:var(--tx-primary);">redução de manutenção, paragens e variabilidade operacional</strong>.
+  </div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('radarChart'),{type:'radar',data:{labels:['Fiabilidade','Automação','Manutenção','Consist. cor','ROI inicial','Escalabilidade'],datasets:[{label:'Mimaki',data:[5,5,5,5,3,5],borderColor:'#378ADD',backgroundColor:'rgba(55,138,221,0.12)',borderWidth:2,pointBackgroundColor:'#378ADD',pointRadius:3,pointStyle:'circle',borderDash:[]},{label:'Roland',data:[4,4,4,4,3,4],borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.08)',borderWidth:2,pointBackgroundColor:'#1D9E75',pointRadius:3,pointStyle:'triangle',borderDash:[5,3]},{label:'Audley',data:[3,3,3,4,5,5],borderColor:'#BA7517',backgroundColor:'rgba(186,117,23,0.07)',borderWidth:2,pointBackgroundColor:'#BA7517',pointRadius:3,pointStyle:'rect',borderDash:[2,2]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{r:{min:0,max:5,ticks:{stepSize:1,font:{size:9},backdropColor:'transparent',color:'rgba(136,135,128,0.7)'},grid:{color:'rgba(136,135,128,0.15)'},pointLabels:{font:{size:11},color:'#5f5e5a'},angleLines:{color:'rgba(136,135,128,0.15)'}}}}});
+</script>
+</body>
+</html>
