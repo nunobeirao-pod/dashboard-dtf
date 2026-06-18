@@ -16,7 +16,16 @@
     --bd-info:#85b7eb; --bd-success:#97c459; --bd-warning:#ef9f27; --bd-danger:#f09595;
     --r-md:8px; --r-lg:12px; --font:'Segoe UI',system-ui,Arial,sans-serif;
   }
-  body { font-family:var(--font); background:var(--bg-secondary); color:var(--tx-primary); padding:24px; min-height:100vh; }
+  [data-theme="dark"] {
+    --bg-primary:#252523; --bg-secondary:#1c1c1a; --bg-tertiary:#141412;
+    --bg-info:#0d2440; --bg-success:#0f2208; --bg-warning:#281700; --bg-danger:#280808;
+    --tx-primary:#e8e6e0; --tx-secondary:#9a9890; --tx-tertiary:#666462;
+    --tx-info:#6aabea; --tx-success:#7abf52; --tx-warning:#d4904a; --tx-danger:#e07070;
+    --bd-tertiary:rgba(255,255,255,0.08); --bd-secondary:rgba(255,255,255,0.15);
+    --bd-info:#1a4a7a; --bd-success:#1a4a08; --bd-warning:#4a2a00; --bd-danger:#4a1010;
+  }
+  html { transition: background 0.2s, color 0.2s; }
+  body { font-family:var(--font); background:var(--bg-secondary); color:var(--tx-primary); padding:24px; min-height:100vh; transition: background 0.2s; }
   .wrap { max-width:960px; margin:0 auto; }
   .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0; }
   .r2   { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
@@ -40,9 +49,15 @@
 <body>
 <div class="wrap">
 <h2 class="sr-only">Dashboard de análise comparativa de máquinas DTF para operação web-to-print automatizada com 4 a 5 linhas de produção.</h2>
-<div style="padding-top:4px;">
-  <h1>Estudo DTF — 4 a 5 linhas de produção</h1>
-  <p style="font-size:13px;color:var(--tx-secondary);margin-top:3px;">Análise comparativa para web-to-print automatizado · 18 junho 2026</p>
+<div style="padding-top:4px;display:flex;justify-content:space-between;align-items:flex-start;">
+  <div>
+    <h1>Estudo DTF — 4 a 5 linhas de produção</h1>
+    <p style="font-size:13px;color:var(--tx-secondary);margin-top:3px;">Análise comparativa para web-to-print automatizado · 18 junho 2026</p>
+  </div>
+  <button id="themeToggle" onclick="toggleTheme()" title="Alternar modo" style="background:var(--bg-primary);border:0.5px solid var(--bd-secondary);border-radius:var(--r-md);padding:6px 12px;cursor:pointer;font-family:var(--font);font-size:12px;color:var(--tx-secondary);display:flex;align-items:center;gap:6px;flex-shrink:0;margin-top:2px;">
+    <i id="themeIcon" class="ti ti-moon" style="font-size:15px;" aria-hidden="true"></i>
+    <span id="themeLabel">Modo escuro</span>
+  </button>
 </div>
 <div class="kpis">
   <div class="metric"><div style="font-size:12px;color:var(--tx-secondary);margin-bottom:5px;"><i class="ti ti-trophy" style="font-size:13px;vertical-align:-1px" aria-hidden="true"></i> Melhor automação</div><div style="font-size:15px;font-weight:500;color:var(--tx-primary);">Mimaki TxF300-75</div><div style="font-size:11px;color:var(--tx-info);margin-top:4px;">1.ª escolha web-to-print</div></div>
@@ -132,6 +147,29 @@
   </div>
 </div>
 </div>
+<script>
+(function(){
+  const saved = localStorage.getItem('dtf-theme');
+  const sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const theme = saved || sys;
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+
+function toggleTheme(){
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('dtf-theme', next);
+  document.getElementById('themeIcon').className = next === 'dark' ? 'ti ti-sun' : 'ti ti-moon';
+  document.getElementById('themeLabel').textContent = next === 'dark' ? 'Modo claro' : 'Modo escuro';
+}
+
+window.addEventListener('DOMContentLoaded', function(){
+  const theme = document.documentElement.getAttribute('data-theme') || 'light';
+  document.getElementById('themeIcon').className = theme === 'dark' ? 'ti ti-sun' : 'ti ti-moon';
+  document.getElementById('themeLabel').textContent = theme === 'dark' ? 'Modo claro' : 'Modo escuro';
+});
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 new Chart(document.getElementById('radarChart'),{type:'radar',data:{labels:['Fiabilidade','Automação','Manutenção','Consist. cor','ROI inicial','Escalabilidade'],datasets:[{label:'Mimaki',data:[5,5,5,5,3,5],borderColor:'#378ADD',backgroundColor:'rgba(55,138,221,0.12)',borderWidth:2,pointBackgroundColor:'#378ADD',pointRadius:3,pointStyle:'circle',borderDash:[]},{label:'Roland',data:[4,4,4,4,3,4],borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.08)',borderWidth:2,pointBackgroundColor:'#1D9E75',pointRadius:3,pointStyle:'triangle',borderDash:[5,3]},{label:'Audley',data:[3,3,3,4,5,5],borderColor:'#BA7517',backgroundColor:'rgba(186,117,23,0.07)',borderWidth:2,pointBackgroundColor:'#BA7517',pointRadius:3,pointStyle:'rect',borderDash:[2,2]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{r:{min:0,max:5,ticks:{stepSize:1,font:{size:9},backdropColor:'transparent',color:'rgba(136,135,128,0.7)'},grid:{color:'rgba(136,135,128,0.15)'},pointLabels:{font:{size:11},color:'#5f5e5a'},angleLines:{color:'rgba(136,135,128,0.15)'}}}}});
