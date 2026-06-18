@@ -49,15 +49,13 @@
 <body>
 <div class="wrap">
 <h2 class="sr-only">Dashboard de análise comparativa de máquinas DTF para operação web-to-print automatizada com 4 a 5 linhas de produção.</h2>
-<div style="padding-top:4px;display:flex;justify-content:space-between;align-items:flex-start;">
-  <div>
-    <h1>Estudo DTF — 4 a 5 linhas de produção</h1>
-    <p style="font-size:13px;color:var(--tx-secondary);margin-top:3px;">Análise comparativa para web-to-print automatizado · 18 junho 2026</p>
-  </div>
-  <button id="themeToggle" onclick="toggleTheme()" title="Alternar modo" style="background:var(--bg-primary);border:0.5px solid var(--bd-secondary);border-radius:var(--r-md);padding:6px 12px;cursor:pointer;font-family:var(--font);font-size:12px;color:var(--tx-secondary);display:flex;align-items:center;gap:6px;flex-shrink:0;margin-top:2px;">
-    <i id="themeIcon" class="ti ti-moon" style="font-size:15px;" aria-hidden="true"></i>
-    <span id="themeLabel">Modo escuro</span>
-  </button>
+<button id="themeToggle" onclick="toggleTheme()" title="Alternar modo claro/escuro" style="position:fixed;top:16px;right:16px;z-index:999;background:var(--bg-primary);border:1px solid var(--bd-secondary);border-radius:20px;padding:7px 14px;cursor:pointer;font-family:var(--font);font-size:13px;color:var(--tx-secondary);display:flex;align-items:center;gap:7px;box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+  <i id="themeIcon" class="ti ti-moon" style="font-size:16px;" aria-hidden="true"></i>
+  <span id="themeLabel">Modo escuro</span>
+</button>
+<div style="padding-top:4px;">
+  <h1>Estudo DTF — 4 a 5 linhas de produção</h1>
+  <p style="font-size:13px;color:var(--tx-secondary);margin-top:3px;">Análise comparativa para web-to-print automatizado · 18 junho 2026</p>
 </div>
 <div class="kpis">
   <div class="metric"><div style="font-size:12px;color:var(--tx-secondary);margin-bottom:5px;"><i class="ti ti-trophy" style="font-size:13px;vertical-align:-1px" aria-hidden="true"></i> Melhor automação</div><div style="font-size:15px;font-weight:500;color:var(--tx-primary);">Mimaki TxF300-75</div><div style="font-size:11px;color:var(--tx-info);margin-top:4px;">1.ª escolha web-to-print</div></div>
